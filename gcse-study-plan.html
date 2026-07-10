@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GCSE Past-Question Study Plan</title>
+  <style>
+    :root {
+      --ink: #172026;
+      --muted: #5d6a72;
+      --paper: #f7f4ef;
+      --panel: #ffffff;
+      --line: #d9ded8;
+      --teal: #006d77;
+      --green: #4b7f52;
+      --gold: #b7791f;
+      --red: #b23a48;
+      --blue: #2f5f9f;
+      --shadow: 0 16px 38px rgba(23, 32, 38, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--teal);
+      font-weight: 700;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    header {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      padding: 24px;
+      color: white;
+      background:
+        linear-gradient(rgba(10, 26, 32, 0.38), rgba(10, 26, 32, 0.82)),
+        url("https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&w=1800&q=80") center/cover;
+    }
+
+    .hero-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding-bottom: 42px;
+    }
+
+    .eyebrow {
+      max-width: max-content;
+      margin: 0 0 12px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(0, 0, 0, 0.22);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.35rem, 7vw, 5.2rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(1rem, 2.2vw, 1.24rem);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .nav-inner a,
+    .print-button {
+      white-space: nowrap;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 12px;
+      background: white;
+      color: var(--ink);
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 70px;
+    }
+
+    section {
+      margin: 0 0 42px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.55rem, 3.5vw, 2.35rem);
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      border-left: 5px solid var(--teal);
+      background: rgba(255, 255, 255, 0.93);
+      color: var(--ink);
+      padding: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .subject {
+      border-top: 6px solid var(--teal);
+    }
+
+    .subject.maths { border-color: var(--blue); }
+    .subject.science { border-color: var(--green); }
+    .subject.english { border-color: var(--red); }
+    .subject.spanish { border-color: var(--gold); }
+    .subject.humanities { border-color: #6b4c93; }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: #edf3f0;
+      color: #244039;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eef2ed;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    label.task {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fbfcfb;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--teal);
+    }
+
+    .progress-shell {
+      height: 14px;
+      border-radius: 999px;
+      background: #dfe7e3;
+      overflow: hidden;
+      margin: 10px 0 4px;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+      transition: width 0.25s ease;
+    }
+
+    .week {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .week:last-child {
+      border-bottom: 0;
+    }
+
+    .week-number {
+      font-weight: 800;
+      color: var(--teal);
+    }
+
+    .past-task {
+      display: grid;
+      gap: 6px;
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .revision-block {
+      border-left: 4px solid var(--gold);
+      padding-left: 12px;
+    }
+
+    .quiz-arena {
+      display: grid;
+      grid-template-columns: minmax(220px, 280px) 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .quiz-panel {
+      background: #10252b;
+      color: white;
+      border: 0;
+    }
+
+    .quiz-panel .muted {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .quiz-controls {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .quiz-controls button,
+    .answer-option,
+    .quiz-action {
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .quiz-controls button {
+      padding: 10px 12px;
+    }
+
+    .quiz-controls button.active {
+      border-color: #7bdff2;
+      background: #d8f6fb;
+      color: #10252b;
+    }
+
+    .quiz-stage {
+      min-height: 460px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      border: 1px solid #cfd9dd;
+      background:
+        linear-gradient(135deg, rgba(0, 109, 119, 0.08), rgba(183, 121, 31, 0.08)),
+        white;
+    }
+
+    .quiz-topline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .quiz-stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+
+    .quiz-stat strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1.1;
+    }
+
+    .question-card {
+      border-radius: 8px;
+      background: #10252b;
+      color: white;
+      padding: 20px;
+    }
+
+    .question-card h3 {
+      font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+      line-height: 1.25;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .answer-option {
+      padding: 14px;
+      border-width: 2px;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .answer-option:hover:not(:disabled) {
+      transform: translateY(-2px);
+      border-color: var(--teal);
+    }
+
+    .answer-option.correct {
+      border-color: #2f855a;
+      background: #d9f7e8;
+    }
+
+    .answer-option.incorrect {
+      border-color: #c53030;
+      background: #ffe1e1;
+    }
+
+    .answer-option:disabled {
+      cursor: default;
+    }
+
+    .feedback {
+      min-height: 58px;
+      border-left: 5px solid var(--teal);
+      border-radius: 8px;
+      background: white;
+      padding: 12px;
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-action {
+      width: max-content;
+      padding: 10px 14px;
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+      text-align: center;
+    }
+
+    .quiz-action.secondary {
+      background: white;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .footer-note {
+      padding: 22px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      header {
+        min-height: 72vh;
+      }
+
+      .grid.two,
+      .grid.three,
+      .stat-row,
+      .quiz-arena,
+      .quiz-topline,
+      .answer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .week {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      nav,
+      .print-button,
+      header {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      main {
+        width: 100%;
+        padding: 0;
+      }
+
+      .card {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      a {
+        color: black;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero-inner">
+      <p class="eyebrow">GCSE revision planner</p>
+      <h1>Detailed Past-Question Study Plan</h1>
+      <p class="hero-copy">A 12-week plan for English, Science, Maths, Spanish, Religious Education, Geography, and History, built around active recall, timed GCSE past questions, mark-scheme review, and weekly correction work.</p>
+      <div class="stat-row" aria-label="Plan summary">
+        <div class="stat"><strong>12</strong> weeks</div>
+        <div class="stat"><strong>7</strong> subjects</div>
+        <div class="stat"><strong>5</strong> focused study days</div>
+        <div class="stat"><strong>1</strong> weekly mock block</div>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Page sections">
+    <div class="nav-inner">
+      <a href="#overview">Overview</a>
+      <a href="#quiz">Quiz Mode</a>
+      <a href="#weekly">Weekly Plan</a>
+      <a href="#subjects">Subjects</a>
+      <a href="#timetable">Timetable</a>
+      <a href="#past-papers">Past Papers</a>
+      <a href="#checklist">Checklist</a>
+      <button class="print-button" onclick="window.print()">Print</button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="overview">
+      <h2>How To Use This Plan</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>1. Learn First</h3>
+          <p>Spend 25-35 minutes revising the topic: notes, flashcards, worked examples, vocabulary, case studies, dates, formulas, quotations, or key teachings.</p>
+        </article>
+        <article class="card">
+          <h3>2. Do Past Questions</h3>
+          <p>Complete questions under timed conditions. Start with short questions, then build toward full papers in Weeks 9-12.</p>
+        </article>
+        <article class="card">
+          <h3>3. Mark And Fix</h3>
+          <p>Use the mark scheme in a different colour. Write one correction, one model phrase, and one target for the next attempt.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>Year 9 Term 3 Quiz Mode</h2>
+      <p class="muted">Play quick rounds inspired by Quizizz: choose a subject, answer the multiple-choice questions, build a streak, and read the explanation before moving on.</p>
+      <div class="quiz-arena">
+        <aside class="card quiz-panel">
+          <h3>Choose A Round</h3>
+          <p class="muted">Each round uses Year 9 Term 3-style questions that prepare you for GCSE skills.</p>
+          <div class="quiz-controls" id="quizControls"></div>
+        </aside>
+
+        <div class="card quiz-stage">
+          <div class="quiz-topline" aria-label="Quiz progress">
+            <div class="quiz-stat"><span>Subject</span><strong id="quizSubject">Mixed</strong></div>
+            <div class="quiz-stat"><span>Score</span><strong id="quizScore">0</strong></div>
+            <div class="quiz-stat"><span>Streak</span><strong id="quizStreak">0</strong></div>
+            <div class="quiz-stat"><span>Question</span><strong id="quizProgress">1/21</strong></div>
+          </div>
+
+          <div class="question-card">
+            <p class="eyebrow" id="quizTopic">Ready</p>
+            <h3 id="quizQuestion">Pick a round to start practising.</h3>
+          </div>
+
+          <div class="answer-grid" id="answerGrid"></div>
+          <div class="feedback" id="quizFeedback">Your feedback will appear here after each answer.</div>
+          <div class="quiz-actions">
+            <button class="quiz-action" id="nextQuestion" type="button">Next Question</button>
+            <button class="quiz-action secondary" id="restartQuiz" type="button">Restart Round</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="weekly" class="card">
+      <h2>12-Week Revision Map</h2>
+      <p class="muted">Adjust the order to match your school’s exam dates. Keep the pattern: revise, practise, mark, redo.</p>
+
+      <div class="week">
+        <div class="week-number">Week 1</div>
+        <div>
+          <h3>Baseline And Organisation</h3>
+          <p>Download one recent paper or question set for each subject from your exam board. Complete 20-30 minutes per subject without notes to find weak areas.</p>
+          <ul class="past-task">
+            <li>Maths: one non-calculator mixed topic set.</li>
+            <li>English: one language analysis question and one literature paragraph.</li>
+            <li>Science: biology cell biology or organisation questions.</li>
+            <li>Spanish: vocabulary audit for family, school, free time, town, and holidays.</li>
+            <li>RE, Geography, History: one short-answer set each.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 2</div>
+        <div>
+          <h3>Core Knowledge</h3>
+          <p>Build memory foundations. Make flashcards for formulas, science required practicals, Spanish tenses, religious teachings, geography case-study facts, and history chronology.</p>
+          <ul class="past-task">
+            <li>Do 45 marks of Maths and 45 marks of Science questions.</li>
+            <li>Write one timed English Language response and one timed History 8 or 12 mark answer.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 3</div>
+        <div>
+          <h3>Accuracy Week</h3>
+          <p>Focus on command words: explain, analyse, evaluate, compare, describe, calculate, justify, and assess.</p>
+          <ul class="past-task">
+            <li>Maths: fractions, percentages, ratio, algebra basics, graph interpretation.</li>
+            <li>Science: chemistry atomic structure, bonding, quantitative chemistry basics.</li>
+            <li>Spanish: translation into English and short writing in three tenses.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 4</div>
+        <div>
+          <h3>Paragraph Structure</h3>
+          <p>Improve long answers. Use PEEL or PETAL paragraphs for English, RE, Geography, and History. Always add precise evidence.</p>
+          <ul class="past-task">
+            <li>English Literature: one extract response and one whole-text essay plan.</li>
+            <li>RE: one 12-mark evaluation answer with two sides and a justified conclusion.</li>
+            <li>Geography: one 6-mark and one 9-mark answer using a named case study.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 5</div>
+        <div>
+          <h3>Timing Week</h3>
+          <p>Use strict time limits. If you run out of time, finish in a different colour, then decide what you should have cut or planned faster.</p>
+          <ul class="past-task">
+            <li>Complete half a Maths paper, one English Language Section A, and one Spanish reading section.</li>
+            <li>Complete one Science topic question set for each of Biology, Chemistry, and Physics.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 6</div>
+        <div>
+          <h3>Midpoint Review</h3>
+          <p>Re-test Week 1 weak areas. Create a red-amber-green list and give green topics less time, amber topics regular practice, red topics teacher or tutor support.</p>
+          <ul class="past-task">
+            <li>Sit one full Maths paper or two half papers.</li>
+            <li>Write one full English essay and one full humanities long answer.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 7</div>
+        <div>
+          <h3>High-Mark Questions</h3>
+          <p>Practise the questions that decide grades: extended writing, multi-step maths, science required practicals, and evaluation questions.</p>
+          <ul class="past-task">
+            <li>Science: required practical methods, variables, graphs, and conclusions.</li>
+            <li>History: one source/interpretation question and one essay-style question.</li>
+            <li>Spanish: 90-word or 150-word writing response, depending on tier.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 8</div>
+        <div>
+          <h3>Mixed Retrieval</h3>
+          <p>Mix topics deliberately so your brain practises choosing methods. Do not revise only the topic you just practised.</p>
+          <ul class="past-task">
+            <li>Maths: calculator mixed paper questions.</li>
+            <li>Geography: physical and human geography mixed questions.</li>
+            <li>RE: beliefs, practices, themes, and ethical arguments mixed together.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 9</div>
+        <div>
+          <h3>Full Paper Cycle 1</h3>
+          <p>Complete full papers in exam conditions where possible. Mark within 24 hours and record the exact reason for each dropped mark.</p>
+          <ul class="past-task">
+            <li>Full Maths paper, full Science paper, and one full English Language section.</li>
+            <li>One full paper or section for Spanish, RE, Geography, and History.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 10</div>
+        <div>
+          <h3>Full Paper Cycle 2</h3>
+          <p>Repeat with a different paper. Your main goal is not just a higher score; it is fewer repeat mistakes.</p>
+          <ul class="past-task">
+            <li>Redo every question you lost marks on before trying new material.</li>
+            <li>Memorise 10 Spanish phrases, 10 English quotations, and 10 history/geography facts.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 11</div>
+        <div>
+          <h3>Exam Readiness</h3>
+          <p>Practise under realistic conditions: quiet desk, timer visible, no phone, no notes, mark scheme afterwards.</p>
+          <ul class="past-task">
+            <li>Two full papers or timed sections for your weakest subjects.</li>
+            <li>One light confidence set for your strongest subjects.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-number">Week 12</div>
+        <div>
+          <h3>Final Polish</h3>
+          <p>Do not cram everything. Focus on memory sheets, corrected questions, model answers, formulas, case studies, quotations, and exam technique.</p>
+          <ul class="past-task">
+            <li>Complete short timed sets only. Stop heavy work the evening before each exam.</li>
+            <li>Read correction logs and practise calm planning before writing.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="subjects">
+      <h2>Subject Past-Question Plan</h2>
+      <div class="grid two">
+        <article class="card subject english">
+          <h3>English Language And Literature</h3>
+          <div class="tag-row">
+            <span class="tag">Analysis</span><span class="tag">Evaluation</span><span class="tag">Creative writing</span><span class="tag">Essays</span>
+          </div>
+          <p><strong>Weekly practice:</strong> one reading question, one writing task, one literature paragraph, and one quotation recall test.</p>
+          <p><strong>Past-question focus:</strong> language methods, structure, comparison, writer’s viewpoint, unseen extract response, poetry comparison, character/theme essays.</p>
+          <p><strong>Marking rule:</strong> highlight evidence, terminology, explanation, context, and judgement separately.</p>
+        </article>
+
+        <article class="card subject maths">
+          <h3>Maths</h3>
+          <div class="tag-row">
+            <span class="tag">Fluency</span><span class="tag">Problem solving</span><span class="tag">Calculator</span><span class="tag">Non-calculator</span>
+          </div>
+          <p><strong>Weekly practice:</strong> 45-60 marks of mixed questions, then redo every incorrect question two days later.</p>
+          <p><strong>Past-question focus:</strong> number, algebra, ratio, geometry, probability, statistics, graphs, transformations, equations, and multi-step problem solving.</p>
+          <p><strong>Marking rule:</strong> write the first line you should have written, not just the final answer.</p>
+        </article>
+
+        <article class="card subject science">
+          <h3>Science</h3>
+          <div class="tag-row">
+            <span class="tag">Biology</span><span class="tag">Chemistry</span><span class="tag">Physics</span><span class="tag">Required practicals</span>
+          </div>
+          <p><strong>Weekly practice:</strong> one biology set, one chemistry set, one physics set, plus one required practical question.</p>
+          <p><strong>Past-question focus:</strong> command words, calculations, graph skills, practical methods, variables, conclusions, and extended 6-mark explanations.</p>
+          <p><strong>Marking rule:</strong> copy the exact scientific term you missed into a glossary.</p>
+        </article>
+
+        <article class="card subject spanish">
+          <h3>Spanish</h3>
+          <div class="tag-row">
+            <span class="tag">Reading</span><span class="tag">Listening</span><span class="tag">Writing</span><span class="tag">Speaking</span>
+          </div>
+          <p><strong>Weekly practice:</strong> two reading/listening sets, one translation, one writing answer, and one speaking photo-card or role-play.</p>
+          <p><strong>Past-question focus:</strong> tenses, opinions, reasons, negatives, time phrases, question words, topic vocabulary, and complex structures.</p>
+          <p><strong>Marking rule:</strong> keep a list of reusable phrases and rewrite one answer with better verbs and connectives.</p>
+        </article>
+
+        <article class="card subject humanities">
+          <h3>Religious Education</h3>
+          <div class="tag-row">
+            <span class="tag">Beliefs</span><span class="tag">Practices</span><span class="tag">Themes</span><span class="tag">Evaluation</span>
+          </div>
+          <p><strong>Weekly practice:</strong> two short questions, one explain question, and one 12-mark evaluation response.</p>
+          <p><strong>Past-question focus:</strong> key teachings, scripture or authority references, contrasting views, ethical reasoning, and justified conclusions.</p>
+          <p><strong>Marking rule:</strong> every long answer needs two developed sides and a clear final judgement.</p>
+        </article>
+
+        <article class="card subject humanities">
+          <h3>Geography</h3>
+          <div class="tag-row">
+            <span class="tag">Physical</span><span class="tag">Human</span><span class="tag">Fieldwork</span><span class="tag">Case studies</span>
+          </div>
+          <p><strong>Weekly practice:</strong> map/graph skill question, one case-study question, one fieldwork question, and one 6 or 9 marker.</p>
+          <p><strong>Past-question focus:</strong> data interpretation, named examples, processes, impacts, management strategies, and evaluate questions.</p>
+          <p><strong>Marking rule:</strong> add place-specific detail: numbers, locations, named schemes, and real impacts.</p>
+        </article>
+
+        <article class="card subject humanities">
+          <h3>History</h3>
+          <div class="tag-row">
+            <span class="tag">Chronology</span><span class="tag">Causation</span><span class="tag">Sources</span><span class="tag">Interpretations</span>
+          </div>
+          <p><strong>Weekly practice:</strong> one chronology recall, one source or interpretation question, and one essay-style answer.</p>
+          <p><strong>Past-question focus:</strong> causes, consequences, change, continuity, significance, source utility, interpretations, and precise factual knowledge.</p>
+          <p><strong>Marking rule:</strong> each paragraph needs a clear claim, accurate evidence, and a link back to the question wording.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="timetable">
+      <h2>Weekly Timetable</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Session 1</th>
+            <th>Session 2</th>
+            <th>Past-Question Task</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Maths skills and worked examples</td>
+            <td>English reading or literature</td>
+            <td>30-45 marks Maths + one English timed response</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Science topic revision</td>
+            <td>Spanish vocabulary and grammar</td>
+            <td>Science topic set + Spanish reading or translation</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>Geography content and case studies</td>
+            <td>History chronology and key evidence</td>
+            <td>One Geography 6/9 marker + one History source or essay question</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>Maths mixed retrieval</td>
+            <td>Religious Education beliefs/themes</td>
+            <td>Mixed Maths questions + RE 12 marker</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Science required practicals</td>
+            <td>Spanish speaking/writing</td>
+            <td>Required practical question + Spanish writing task</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>Timed paper block</td>
+            <td>Marking and corrections</td>
+            <td>One full paper, half paper, or two timed sections</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>Light recall only</td>
+            <td>Plan next week</td>
+            <td>Flashcards, formula recall, quote recall, vocabulary review</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="past-papers" class="card">
+      <h2>Official Past-Paper Sources</h2>
+      <p>Use the exam board your school follows. Download the question paper, insert if there is one, and mark scheme. Avoid reading the mark scheme before the timed attempt.</p>
+      <div class="grid three">
+        <article>
+          <h3>AQA</h3>
+          <p><a href="https://www.aqa.org.uk/find-past-papers-and-mark-schemes" target="_blank" rel="noreferrer">AQA past papers and mark schemes</a></p>
+          <p class="muted">Useful for GCSE English, Maths, Science, Spanish, RE, Geography, and History if your school uses AQA.</p>
+        </article>
+        <article>
+          <h3>Pearson Edexcel</h3>
+          <p><a href="https://qualifications.pearson.com/en/support/support-topics/exams/past-papers.html" target="_blank" rel="noreferrer">Pearson Edexcel past papers</a></p>
+          <p class="muted">Use the filters to choose GCSE, subject, specification, paper, and series.</p>
+        </article>
+        <article>
+          <h3>OCR</h3>
+          <p><a href="https://www.ocr.org.uk/qualifications/past-paper-finder/" target="_blank" rel="noreferrer">OCR past-paper finder</a></p>
+          <p class="muted">Use for OCR GCSE courses and compare your answers with official mark schemes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="checklist" class="card">
+      <h2>Progress Checklist</h2>
+      <p class="muted">Ticks save in this browser. Use this section as your weekly reset.</p>
+      <div class="progress-shell" aria-label="Progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <p id="progressText" class="muted">0% complete</p>
+
+      <div class="checklist">
+        <label class="task"><input type="checkbox" data-task="papers" /> Download past papers and mark schemes for all seven subjects.</label>
+        <label class="task"><input type="checkbox" data-task="baseline" /> Complete baseline questions and write a red-amber-green topic list.</label>
+        <label class="task"><input type="checkbox" data-task="maths" /> Finish this week’s Maths mixed questions and corrections.</label>
+        <label class="task"><input type="checkbox" data-task="english" /> Finish this week’s English timed response and improve it after marking.</label>
+        <label class="task"><input type="checkbox" data-task="science" /> Finish Biology, Chemistry, Physics, and required-practical questions.</label>
+        <label class="task"><input type="checkbox" data-task="spanish" /> Finish Spanish vocabulary, translation, and writing or speaking practice.</label>
+        <label class="task"><input type="checkbox" data-task="re" /> Finish RE short questions and one 12-mark evaluation answer.</label>
+        <label class="task"><input type="checkbox" data-task="geography" /> Finish Geography skills, case-study, and extended-answer practice.</label>
+        <label class="task"><input type="checkbox" data-task="history" /> Finish History source, interpretation, or essay-style practice.</label>
+        <label class="task"><input type="checkbox" data-task="corrections" /> Add every mistake to a correction log and redo difficult questions.</label>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <article class="card revision-block">
+        <h2>Correction Log Template</h2>
+        <p><strong>Question:</strong> paper, year, question number.</p>
+        <p><strong>Lost marks because:</strong> knowledge gap, timing, misread command word, weak evidence, calculation error, unclear paragraph, missing units, or spelling/grammar.</p>
+        <p><strong>Fixed answer:</strong> write the improved line, method, paragraph, formula, fact, quote, or phrase.</p>
+        <p><strong>Retest date:</strong> two days later, then one week later.</p>
+      </article>
+
+      <article class="card revision-block">
+        <h2>Exam-Day Habits</h2>
+        <p>Read the command word twice. Underline the exact topic. Plan long answers briefly. Show working in Maths and Science. Use named examples in Geography. Use accurate evidence in History. In Spanish, include opinions, reasons, time phrases, and at least two tenses.</p>
+      </article>
+    </section>
+
+    <p class="footer-note">Built for GCSE revision using official past-paper practice. Check your teacher’s specification and set texts/topics before starting full papers.</p>
+  </main>
+
+  <script>
+    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"][data-task]'));
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const storageKey = 'gcse-study-plan-progress';
+    const quizControls = document.getElementById('quizControls');
+    const quizSubject = document.getElementById('quizSubject');
+    const quizScore = document.getElementById('quizScore');
+    const quizStreak = document.getElementById('quizStreak');
+    const quizProgress = document.getElementById('quizProgress');
+    const quizTopic = document.getElementById('quizTopic');
+    const quizQuestion = document.getElementById('quizQuestion');
+    const answerGrid = document.getElementById('answerGrid');
+    const quizFeedback = document.getElementById('quizFeedback');
+    const nextQuestion = document.getElementById('nextQuestion');
+    const restartQuiz = document.getElementById('restartQuiz');
+
+    const quizBank = [
+      {
+        subject: 'Maths',
+        topic: 'Algebra',
+        question: 'Solve 3x + 7 = 25.',
+        options: ['x = 4', 'x = 5', 'x = 6', 'x = 8'],
+        answer: 2,
+        explanation: 'Subtract 7 from both sides to get 3x = 18, then divide by 3. x = 6.'
+      },
+      {
+        subject: 'Maths',
+        topic: 'Angles',
+        question: 'A triangle has angles 48 degrees and 67 degrees. What is the third angle?',
+        options: ['55 degrees', '60 degrees', '65 degrees', '75 degrees'],
+        answer: 2,
+        explanation: 'Angles in a triangle add to 180 degrees. 180 - 48 - 67 = 65 degrees.'
+      },
+      {
+        subject: 'Maths',
+        topic: 'Percentages',
+        question: 'A coat costs 40 pounds and is reduced by 15%. What is the sale price?',
+        options: ['25 pounds', '30 pounds', '34 pounds', '36 pounds'],
+        answer: 2,
+        explanation: '15% of 40 is 6. Subtract 6 from 40 to get 34 pounds.'
+      },
+      {
+        subject: 'Science',
+        topic: 'Biology',
+        question: 'Which cell structure controls what enters and leaves the cell?',
+        options: ['Nucleus', 'Cell membrane', 'Cytoplasm', 'Ribosome'],
+        answer: 1,
+        explanation: 'The cell membrane controls movement of substances into and out of the cell.'
+      },
+      {
+        subject: 'Science',
+        topic: 'Chemistry',
+        question: 'What is formed when an acid reacts with an alkali?',
+        options: ['Salt and water', 'Oxygen and water', 'Metal and acid', 'Carbon dioxide only'],
+        answer: 0,
+        explanation: 'Neutralisation produces a salt and water.'
+      },
+      {
+        subject: 'Science',
+        topic: 'Physics',
+        question: 'Which equation links speed, distance, and time?',
+        options: ['speed = time / distance', 'speed = distance x time', 'speed = distance / time', 'speed = force / area'],
+        answer: 2,
+        explanation: 'Speed is distance divided by time.'
+      },
+      {
+        subject: 'English',
+        topic: 'Language Analysis',
+        question: 'Which term means giving human qualities to a non-human thing?',
+        options: ['Simile', 'Personification', 'Alliteration', 'Foreshadowing'],
+        answer: 1,
+        explanation: 'Personification gives human actions or feelings to objects, ideas, or nature.'
+      },
+      {
+        subject: 'English',
+        topic: 'Writing',
+        question: 'Which sentence uses the strongest verb?',
+        options: ['The boy went across the road.', 'The boy walked across the road.', 'The boy sprinted across the road.', 'The boy was across the road.'],
+        answer: 2,
+        explanation: 'Sprinted is precise and energetic, so it creates a clearer image.'
+      },
+      {
+        subject: 'English',
+        topic: 'Structure',
+        question: 'What is a cliffhanger mainly used for?',
+        options: ['To explain a definition', 'To keep the reader wanting to know what happens next', 'To list facts', 'To make dialogue shorter'],
+        answer: 1,
+        explanation: 'A cliffhanger creates suspense by stopping at a tense or unresolved moment.'
+      },
+      {
+        subject: 'Spanish',
+        topic: 'Vocabulary',
+        question: 'What does "me gusta la musica" mean?',
+        options: ['I hate music', 'I like music', 'I play music', 'I listen to music'],
+        answer: 1,
+        explanation: 'Me gusta means I like, and la musica means music.'
+      },
+      {
+        subject: 'Spanish',
+        topic: 'Tenses',
+        question: 'Which Spanish phrase means "I went"?',
+        options: ['Voy', 'Fui', 'Ire', 'Voy a ir'],
+        answer: 1,
+        explanation: 'Fui is the preterite form meaning I went.'
+      },
+      {
+        subject: 'Spanish',
+        topic: 'Opinions',
+        question: 'Which phrase gives an opinion and a reason?',
+        options: ['Juego al futbol.', 'Mi colegio es grande.', 'Me encanta la historia porque es interesante.', 'Tengo dos hermanos.'],
+        answer: 2,
+        explanation: 'It includes an opinion, me encanta, and a reason, porque es interesante.'
+      },
+      {
+        subject: 'Religious Education',
+        topic: 'Ethics',
+        question: 'What does stewardship mean in many religious views?',
+        options: ['Using the Earth without limits', 'Caring responsibly for the world', 'Avoiding all technology', 'Only helping friends'],
+        answer: 1,
+        explanation: 'Stewardship means looking after the world responsibly, often because it is seen as God-given.'
+      },
+      {
+        subject: 'Religious Education',
+        topic: 'Arguments',
+        question: 'In a 12-mark answer, what makes a conclusion stronger?',
+        options: ['Repeating the question only', 'Giving no opinion', 'Making a justified judgement', 'Writing one sentence'],
+        answer: 2,
+        explanation: 'A strong conclusion weighs the arguments and gives a justified final judgement.'
+      },
+      {
+        subject: 'Religious Education',
+        topic: 'Beliefs',
+        question: 'Which word means belief in one God?',
+        options: ['Atheism', 'Polytheism', 'Monotheism', 'Agnosticism'],
+        answer: 2,
+        explanation: 'Monotheism means belief in one God.'
+      },
+      {
+        subject: 'Geography',
+        topic: 'Rivers',
+        question: 'Which process is the wearing away of rock by a river?',
+        options: ['Deposition', 'Erosion', 'Condensation', 'Urbanisation'],
+        answer: 1,
+        explanation: 'Erosion is the wearing away of rock and soil by water, wind, ice, or waves.'
+      },
+      {
+        subject: 'Geography',
+        topic: 'Population',
+        question: 'What does population density measure?',
+        options: ['Births per year', 'People per square kilometre', 'Deaths per year', 'Average age'],
+        answer: 1,
+        explanation: 'Population density is the number of people living in each unit of area.'
+      },
+      {
+        subject: 'Geography',
+        topic: 'Climate',
+        question: 'Which gas is most linked to human-caused climate change?',
+        options: ['Carbon dioxide', 'Helium', 'Neon', 'Argon'],
+        answer: 0,
+        explanation: 'Carbon dioxide is a greenhouse gas released by burning fossil fuels.'
+      },
+      {
+        subject: 'History',
+        topic: 'Sources',
+        question: 'What should you consider when judging the usefulness of a source?',
+        options: ['Only its length', 'Its content, origin, purpose, and knowledge from the period', 'Only whether it has a picture', 'Only the handwriting'],
+        answer: 1,
+        explanation: 'Usefulness depends on what the source says, who made it, why it was made, and your own knowledge.'
+      },
+      {
+        subject: 'History',
+        topic: 'Chronology',
+        question: 'What does chronology mean?',
+        options: ['Putting events in time order', 'Explaining only one cause', 'Drawing a map', 'Comparing two sources only'],
+        answer: 0,
+        explanation: 'Chronology means arranging events in the order they happened.'
+      },
+      {
+        subject: 'History',
+        topic: 'Causation',
+        question: 'Which phrase is best for explaining causation?',
+        options: ['This was nice.', 'This led to...', 'This source is old.', 'This answer is long.'],
+        answer: 1,
+        explanation: 'This led to... helps explain how one event caused or influenced another.'
+      }
+    ];
+
+    const subjects = ['Mixed', 'Maths', 'Science', 'English', 'Spanish', 'Religious Education', 'Geography', 'History'];
+    let activeSubject = 'Mixed';
+    let activeQuestions = [];
+    let currentQuestion = 0;
+    let score = 0;
+    let streak = 0;
+    let answered = false;
+
+    function loadProgress() {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      checkboxes.forEach((box) => {
+        box.checked = Boolean(saved[box.dataset.task]);
+      });
+      updateProgress();
+    }
+
+    function saveProgress() {
+      const data = {};
+      checkboxes.forEach((box) => {
+        data[box.dataset.task] = box.checked;
+      });
+      localStorage.setItem(storageKey, JSON.stringify(data));
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const total = checkboxes.length;
+      const done = checkboxes.filter((box) => box.checked).length;
+      const percent = total ? Math.round((done / total) * 100) : 0;
+      progressBar.style.width = `${percent}%`;
+      progressText.textContent = `${percent}% complete (${done}/${total} tasks)`;
+    }
+
+    checkboxes.forEach((box) => box.addEventListener('change', saveProgress));
+    loadProgress();
+
+    function buildQuizControls() {
+      quizControls.innerHTML = '';
+      subjects.forEach((subject) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = subject;
+        button.className = subject === activeSubject ? 'active' : '';
+        button.addEventListener('click', () => startQuiz(subject));
+        quizControls.appendChild(button);
+      });
+    }
+
+    function startQuiz(subject) {
+      activeSubject = subject;
+      activeQuestions = subject === 'Mixed'
+        ? [...quizBank]
+        : quizBank.filter((item) => item.subject === subject);
+      currentQuestion = 0;
+      score = 0;
+      streak = 0;
+      answered = false;
+      buildQuizControls();
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const item = activeQuestions[currentQuestion];
+      answered = false;
+      quizSubject.textContent = activeSubject;
+      quizScore.textContent = score;
+      quizStreak.textContent = streak;
+      quizProgress.textContent = `${currentQuestion + 1}/${activeQuestions.length}`;
+      quizTopic.textContent = `${item.subject} - ${item.topic}`;
+      quizQuestion.textContent = item.question;
+      quizFeedback.textContent = 'Choose the best answer.';
+      nextQuestion.disabled = true;
+      answerGrid.innerHTML = '';
+
+      item.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'answer-option';
+        button.textContent = option;
+        button.addEventListener('click', () => chooseAnswer(index));
+        answerGrid.appendChild(button);
+      });
+    }
+
+    function chooseAnswer(index) {
+      if (answered) return;
+      answered = true;
+      const item = activeQuestions[currentQuestion];
+      const buttons = Array.from(answerGrid.querySelectorAll('button'));
+      const isCorrect = index === item.answer;
+
+      buttons.forEach((button, buttonIndex) => {
+        button.disabled = true;
+        if (buttonIndex === item.answer) button.classList.add('correct');
+        if (buttonIndex === index && !isCorrect) button.classList.add('incorrect');
+      });
+
+      if (isCorrect) {
+        score += 100 + streak * 20;
+        streak += 1;
+        quizFeedback.textContent = `Correct. ${item.explanation}`;
+      } else {
+        streak = 0;
+        quizFeedback.textContent = `Not quite. ${item.explanation}`;
+      }
+
+      quizScore.textContent = score;
+      quizStreak.textContent = streak;
+      nextQuestion.disabled = false;
+    }
+
+    function finishQuiz() {
+      quizTopic.textContent = 'Round complete';
+      quizQuestion.textContent = `You scored ${score} points in ${activeSubject}.`;
+      answerGrid.innerHTML = '';
+      quizFeedback.textContent = score >= activeQuestions.length * 70
+        ? 'Strong round. Now redo any topics that felt slow.'
+        : 'Good practice. Replay the round and aim for a longer streak.';
+      nextQuestion.disabled = true;
+    }
+
+    nextQuestion.addEventListener('click', () => {
+      if (currentQuestion + 1 >= activeQuestions.length) {
+        finishQuiz();
+        return;
+      }
+      currentQuestion += 1;
+      renderQuestion();
+    });
+
+    restartQuiz.addEventListener('click', () => startQuiz(activeSubject));
+    buildQuizControls();
+    startQuiz('Mixed');
+  </script>
+</body>
+</html>
